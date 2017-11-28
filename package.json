@@ -1,0 +1,19 @@
+{
+  "name": "test_cookies",
+  "version": "1.0.0",
+  "description": "a test example of connect cookies",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "NealMarlin",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "connect": "^3.6.0",
+    "cookie-parser": "^1.4.3",
+    "formidable": "^1.1.1",
+    "github-flavored-markdown": "^1.0.1",
+    "hogan": "^1.0.2"
+  }
+}

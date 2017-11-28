@@ -1,0 +1,33 @@
+var net = require("net"),
+      repl = require("repl");
+  connections = 0;
+  repl.start({
+    prompt: "node via stdin> ",
+    useGlobal:true,
+    input: process.stdin,
+    output: process.stdout
+});
+  net.createServer(function (socket) {
+    connections += 1;
+    console.log('Unix socket conneted!');
+    repl.start({
+      prompt: "node via Unix socket> ",
+      useGlobal:true,
+      input: socket,
+      output: socket
+    }).on('exit', function() {
+      socket.end();
+    })
+  }).listen("/tmp/node-repl-sock");
+  net.createServer(function (socket) {
+    connections += 1;
+    console.log('TCP socket connected!');
+    repl.start({
+      prompt: "node via TCP socket> ",
+      useGlobal:true,
+      input: socket,
+      output: socket
+    }).on('exit', function() {
+      socket.end();
+});
+}).listen(3000);

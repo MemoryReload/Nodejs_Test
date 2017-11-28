@@ -1,0 +1,2 @@
+#ignore the npm modules, because it can reinstalled.
+/node_modules/*
